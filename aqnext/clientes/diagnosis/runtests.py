@@ -12,7 +12,7 @@ if __name__ == "__main__":
     django.setup()
     TestRunner = get_runner(settings)
 
-    test_runner = TestRunner(keepdb=True, verbosity=0, liveserver="localhost:8081")
+    test_runner = TestRunner(keepdb=True, verbosity=0, liveserver="172.55.0.10:8081")
     failures = test_runner.run_tests(sys.argv[1:])
 
     sys.exit(bool(failures))

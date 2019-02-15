@@ -1,6 +1,7 @@
 ALLOWED_HOSTS = (
     'localhost',
-    '89.29.153.34'
+    '192.168.122.1',
+    '172.55.0.10'
 )
 
 DATABASES = {
@@ -9,7 +10,7 @@ DATABASES = {
         'NAME': 'yeboyebo_diagnosis',
         'USER': 'javier',
         'PASSWORD': '555zapato',
-        'HOST': 'localhost',
+        'HOST': 'DB',
         'PORT': '5432',
         'ATOMIC_REQUESTS': False
     }
