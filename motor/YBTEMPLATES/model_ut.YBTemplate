@@ -1,0 +1,46 @@
+# @class_declaration interna #
+from YBLEGACY import qsatype
+from YBUTILS.viewREST import cacheController
+
+from models.tmpModulo.tmpModelo import tmpModelo
+
+
+class interna(qsatype.objetoBase):
+
+    ctx = qsatype.Object()
+
+    def __init__(self, context=None):
+        self.ctx = context
+
+
+# @class_declaration tmpClient #
+class tmpClient(interna):
+
+    def tmpClient_test_userTesting(self, test):
+        test.assertEqual(cacheController.getUser(), "testing")
+
+    def __init__(self, context=None):
+        super().__init__(context)
+
+    def test_userTesting(self, test):
+        return self.ctx.tmpClient_test_userTesting(test)
+
+
+# @class_declaration head #
+class head(tmpClient):
+
+    def __init__(self, context=None):
+        super().__init__(context)
+
+
+# @class_declaration ifaceCtx #
+class ifaceCtx(head):
+
+    def __init__(self, context=None):
+        super().__init__(context)
+
+
+# @class_declaration FormInternalObj #
+class FormInternalObj(qsatype.FormDBWidget):
+    def _class_init(self):
+        self.iface = ifaceCtx(self)

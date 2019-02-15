@@ -1,0 +1,135 @@
+{% extends 'YBLOGIN/index.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% load includeJSX %}
+{% load YBtools %}
+
+		        {% block title %}
+            {% trans "AQNext" %}
+        {% endblock %}
+
+        {% block favicon %}
+        {% endblock %}
+
+        {% block css %}
+            <link rel="stylesheet" type="text/css" href="{% static 'bundles/main.css' %}">            
+            <!-- Material Design fonts -->
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+            <link rel="icon" type="image/png" href="{% static 'dist/img/logo/icon.png' %}" />
+        {% endblock %}
+
+        {% block js %}            
+            <script src="{% static 'bundles/main.js' %}"></script>
+            <script src="{% static 'bundles/auxcss.js' %}"></script>
+        {% endblock %}
+
+        {% block main %}
+			<style>
+        		.logPanel{
+        			max-width:350px;
+        			margin:30px auto;
+        			overflow:hidden;
+        			background-color:white;
+        			box-shadow: -40px 40px 160px 0 rgba(0, 0, 0, 0.08), -8px 8px 15px 0 rgba(120, 120, 120, 0.04), 3px 3px 30px 0 rgba(0, 0, 0, 0.04) !important;
+        		}
+
+        		.logInput{
+        			//width:98%;
+        		}
+
+        		.logInputPas{
+        			//width:98%;
+        			margin-top:20px !important;
+
+        		}
+
+        		.logButton{
+        			float:right;
+        			//left:50%;
+        			//margin-left:-55px;
+        		}
+
+        		.logPanelHeader, .logPanelBody{
+        			margin:5px 20px;
+        		}
+
+                td {
+                    padding-right: 10px;
+                }
+
+                .userPanelSearch{
+                    padding: 10px;
+                }
+
+                .paginateUser{
+                    text-align: right;
+                }
+        	</style>
+		   <div class="logPanel">
+				<div class="logPanelHeader">
+					<div class="logError">{{error}}</div>
+					<img src="{% static 'dist/img/logo/logo.png' %}" alt="logo" className="logo" style="margin-left:17%"></img>
+				</div>
+                {% if pc > 1%}
+                    <div class="userPanelSearch">
+                        <form action="" method="post">
+                        {% csrf_token %}
+                            <div class="form-group label-floating logInputPas">
+                                <label class="control-label" for="searchuser">Buscar Usuario</label>
+                                <input type="text" name="searchuser" class="logInput form-control">
+                            </div>
+                            <button name="loginSubmit" href="javascript:void(0)" class="btn btn-flat btn-primary logButton">Buscar</button>
+                        </form>
+                    </div>
+                {% endif %}
+				<div class="logPanelBody">
+					<table>
+					    <tr>
+					        <th>Usuario&nbsp;&nbsp;&nbsp;</th>
+					        <th>Grupo&nbsp;&nbsp;&nbsp;</th>
+					        <th></th>
+					    </tr>
+					    {% for user in users %}
+						    <tr> 
+						        <td>{{ user.username }}</td>
+						        <td>
+							        {% for g in user.groups.all %}
+							        	{{ g }}
+
+							        {% endfor %}
+						        </td>
+						        <td>
+						        	 <a href="/deleteUser/{{ user.username }}">Eliminar</a> 
+						        </td>
+                                <td>
+                                     &nbsp;&nbsp;<a href="/addGroup/{{ user.username }}">Gestionar grupos</a> 
+                                </td>
+						    </tr>
+					    {% endfor %}
+					</table>
+                    {% if pc > 1 %}
+                        {% if not filtrado %}
+                            <div class="paginateUser">
+                                <p>{{ po }} de {{ pc }}</p>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+					<br/>
+					<a href="/signup">Crear Usuario</a> 
+                    &nbsp;&nbsp;<a href="/newgroup">Crear Grupo</a> 
+				</div>
+                <button name="return" onClick="location.href='/'" class="btn btn-flat btn-primary logButton">Volver</button>
+			</div>
+		{% endblock %}
+		
+
+{% block endjs %}
+
+
+			<script src="{% static "dist/js/material.js" %}"></script>
+			<script src="{% static "dist/js/ripples.min.js" %}"></script>
+			<script>
+			  $.material.init();
+			</script>      
+ {% endblock %}
+   

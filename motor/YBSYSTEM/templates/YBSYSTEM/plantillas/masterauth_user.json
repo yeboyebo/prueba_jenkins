@@ -1,0 +1,40 @@
+{
+    "querystring": {
+        "p_l": 50,
+        "p_c": true,
+        "s_username__ne": "admin"
+    },
+    "schema": {},
+    "layout": {
+        "masterAuthUser": {
+            "componente": "YBList",
+            "label": "Usuarios",
+            "prefix": "auth_user",
+            "filter": "buscador",
+            "columns": [
+                {"tipo": "field", "listpos": "title", "key": "username"},
+                {
+                    "tipo": "act",
+                    "key": "delete",
+                    "label": "Borrar Linea",
+                    "success": [
+                        {"slot": "refrescar"}
+                    ]
+                }
+            ],
+            "rowclick": "link"
+        },
+        "newRecordTelest": {
+            "componente": "YBNewRecordGoTo",
+            "class": "info",
+            "icon": "add",
+            "goto": "/signup"
+        }
+    },
+    "acciones": {
+        "delete": {
+            "action": "deleteRow",
+            "icon": "delete"
+        }
+    }
+}

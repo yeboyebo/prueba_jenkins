@@ -1,0 +1,12 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load includeJSX %}
+{% load YBtools %}
+
+<div id="yb_web_home"/>
+
+{% incJS navegacion $ componentes %}
+    
+{% endVar %}
+	navegacion.ReactLoader.getComponent("YBBaseHome", document.getElementById("yb_web_home"));
+{% endincJS %}

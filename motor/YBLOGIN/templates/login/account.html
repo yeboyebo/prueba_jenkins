@@ -1,0 +1,95 @@
+{% extends 'YBLOGIN/index.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% load includeJSX %}
+{% load YBtools %}
+
+        {% block title %}
+            {% trans "AQNext" %}
+        {% endblock %}
+
+        {% block favicon %}
+        {% endblock %}
+
+        {% block css %}
+            <link rel="stylesheet" type="text/css" href="{% static 'bundles/main.css' %}">            
+            <!-- Material Design fonts -->
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+            <link rel="icon" type="image/png" href="{% static 'dist/img/logo/icon.png' %}" />
+        {% endblock %}
+
+        {% block js %}            
+            <script src="{% static 'bundles/main.js' %}"></script>
+            <script src="{% static 'bundles/auxcss.js' %}"></script>
+        {% endblock %}
+
+        {% block main %}
+            <style>
+                .logPanel{
+                    max-width:350px;
+                    margin:30px auto;
+                    overflow:hidden;
+                    background-color:white;
+                    box-shadow: -40px 40px 160px 0 rgba(0, 0, 0, 0.08), -8px 8px 15px 0 rgba(120, 120, 120, 0.04), 3px 3px 30px 0 rgba(0, 0, 0, 0.04) !important;
+                }
+
+                .logInput{
+                    //width:98%;
+                }
+
+                .logInputPas{
+                    //width:98%;
+                    margin-top:20px !important;
+
+                }
+
+                .logButton{
+                    float:right;
+                    //left:50%;
+                    //margin-left:-55px;
+                }
+
+                .logPanelHeader, .logPanelBody{
+                    margin:5px 20px;
+                }
+            </style>
+           <div class="logPanel">
+                <div class="logPanelHeader">
+                    <div class="logError">{{error}}</div>
+                    <img src="{% static 'dist/img/logo/logo.png' %}" alt="logo" className="logo" style="margin-left:17%"></img>
+                </div>
+                <div class="logPanelBody">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="account">
+                        <div class="form-group label-floating">
+                            <label class="control-label" for="focusedInput1">Usuario</label>
+                            <input type="text" name="username" class="logInput form-control" value={{usuario}} disabled=true>
+                        </div>
+                        <div class="form-group label-floating logInputPas">
+                            <label class="control-label" for="focusedInput1">Nueva Contraseña</label>
+                            <input type="password" name="password" class="logInput form-control">
+                        </div>
+                        <div class="form-group label-floating logInputPas">
+                            <label class="control-label" for="focusedInput1">Repite Contraseña</label>
+                            <input type="password" name="password2" class="logInput form-control">
+                        </div>
+                        <div class="logPanelFooter">
+                            <button name="loginSubmit" href="javascript:void(0)" class="btn btn-flat btn-primary logButton">Modificar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endblock %}
+        
+
+{% block endjs %}
+
+
+            <!--script src="{% static "dist/js/material.js" %}"></script>
+            <script src="{% static "dist/js/ripples.min.js" %}"></script>
+            <script>
+              $.material.init();
+            </script-->      
+ {% endblock %}
+   

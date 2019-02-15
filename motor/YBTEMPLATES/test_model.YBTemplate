@@ -1,0 +1,30 @@
+# @class_declaration interna #
+import importlib
+
+from YBUTILS.test_tools import YBTestCase
+
+from YBLEGACY import qsatype
+from YBUTILS.CooperativeMeta import CooperativeMeta
+
+
+class interna(qsatype.objetoBase):
+    pass
+
+
+# @class_declaration tmpClient #
+class tmpClient(interna):
+
+    def test_userTesting(self):
+        return form.iface.test_userTesting(self)
+
+
+# @class_declaration tmpModelo #
+class tmpModelo(YBTestCase, tmpClient):
+    __metaclass__ = CooperativeMeta
+
+
+definitions = importlib.import_module("models.tmpModulo.test.tmpModelo_ut")
+form = definitions.FormInternalObj()
+form._class_init()
+form.iface.ctx = form.iface
+form.iface.iface = form.iface

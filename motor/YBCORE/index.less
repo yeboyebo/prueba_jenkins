@@ -1,0 +1,955 @@
+@import "less/webcomponents.less";
+@import "less/estilosGenerales.less";
+@import "less/funcionesGenerales.less";
+@import "less/variablesGenerales.less";
+@import "less/YBTable.less";
+@import "less/YBFieldDB.less";
+@import "less/YBList.less";
+@import "less/YBChart.less";
+@import "less/YBChat.less";
+@import "less/YBTpv.less";
+@import "less/YBCalendar.less";
+@import "less/YBFilterForm.less";
+@import "less/YBNavBar.less";
+@import "less/YBButton.less";
+@import "node_modules/bootstrap/dist/css/bootstrap.css";
+@import "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css";
+@import "node_modules/material-design-icons/iconfont/material-icons.css";
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+/******************************************************************************/
+/***************************** Main ************************************/
+/******************************************************************************/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: Nunito, Helvetica, Open Sans, Roboto, Arial, sans-serif !important;
+  font-weight: 400;
+  font-size: 15px !important;
+}
+body {
+    overflow-x: hidden;
+    margin: 0px;
+    padding-bottom: 30px;
+    height: 100%;
+    color: rgba(0,0,0,.87);
+    background: #F2F2F2;
+    position: relative;
+    width: 100%;
+    //font-family: Open Sans, Roboto, Helvetica, Arial, sans-serif;
+}
+
+a, a,
+a:hover,
+a:focus {
+  color: @color-primary;
+}
+.mdi-24px {
+    font-size: 24px !important;
+}
+
+#componentContainer {
+    margin: 15px;
+}
+
+@media (max-width: 600px) {
+    #componentContainer {
+        margin: 5px !important;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.groupbox {
+    overflow: hidden;
+    //Si necesitamos width 100% en algun groupbox poner otra clase
+    width: 100%;
+    //margin-bottom: 5px;
+    padding-bottom: 5px;
+
+}
+
+.actionGB {
+    width: auto !important;
+}
+
+.groupBoxComponent {
+    padding-top: 5px;
+    padding-bottom: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white; 
+    overflow: hidden;
+}
+
+/******************************************************************************/
+/***************************** Main ************************************/
+/******************************************************************************/
+
+.paginacion {
+    margin-top: 15px;
+}
+
+.withripple {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .withripple {
+        width: 100%
+    }
+}
+
+.checkbox-material {
+    margin-right: 10px;
+}
+
+.YBLabel {
+    position: relative;
+    float: left;
+    margin-top: 18px;
+}
+
+.validacion + .YBLabel {
+    padding-left: 15px;
+    margin: 26px 0 0 0 !important;
+}
+
+#YBError {
+    font-weight: bold;
+    font-size: 20;
+    margin-left: 20px;
+
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.parentgroupbox {
+    padding: 3px;
+}
+
+/******************************************************************************/
+/***************************** Formularios ************************************/
+/******************************************************************************/
+
+input:disabled {
+    //background: lightgrey !important;
+    color: rgba(0, 0, 0, 0.298039);
+    //border-bottom: 2px dotted #D2D2D2 !important;
+}
+
+input[type="text"]:disabled {
+    //background: lightgrey !important;
+    color: rgba(0, 0, 0, 0.298039);
+    //border-bottom: 2px dotted #D2D2D2 !important;
+}
+
+.fileInput {
+    opacity: 1 !important;
+}
+
+
+/******************************************************************************/
+/******************************** Modal ************************************/
+/******************************************************************************/
+
+.modalCuerpo {
+    display: block;
+    position: relative;
+    overflow: auto;
+    max-height: 300px;
+}
+
+.modalPie {
+    box-sizing: border-box;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    //min-height: 40px;
+    //margin-top: 20px;
+}
+
+.fondogris {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+    opacity: .50;
+    -webkit-opacity: .5;
+    -moz-opacity: .5;
+    filter: alpha(opacity=50);
+    z-index: 1000;
+}
+
+.loadProgress {
+    //display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+    opacity: .50;
+    -webkit-opacity: .5;
+    -moz-opacity: .5;
+    filter: alpha(opacity=50);
+    z-index: 1000;
+}
+
+.loadProgress.active {
+    display: block;
+}
+
+.modalContent {
+    font-weight: bold;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    //box-shadow: 0 0 25px -5px #000;
+    //-webkit-box-shadow: 0 0 25px -5px #000;
+    //-moz-box-shadow: 0 0 25px -5px #000;
+    display: block;
+    //min-height: 140px;
+    padding: 10px;
+    position: fixed;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, 0);
+    max-width: 80%;
+    width: 420px;
+    z-index: 1000;
+}
+
+.fondogris.active,
+.modalContent.active {
+    display: block;
+}
+
+.modalConfirm {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    box-shadow: 0 0 25px -5px #000;
+    -webkit-box-shadow: 0 0 25px -5px #000;
+    -moz-box-shadow: 0 0 25px -5px #000;
+    display: block;
+    min-height: 140px;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 80%;
+    width: 700px;
+    z-index: 1000;
+}
+
+.fondogris.active,
+.modalConfirm.active {
+    display: block;
+}
+
+.modalHeader{
+    padding: 14px 20px 13px;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+/******************************************************************************/
+/******************************** YBDashBoard *********************************/
+/******************************************************************************/
+
+.YBDashBoard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.YBDashBoardItem, .YBDashBoardItem:visited, .YBDashBoardItem:focus {
+    float: left;
+    margin: 5px;
+    border-radius: 10px;
+    width: 115px;
+    height: 100px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.YBDashBoardItem:hover {
+    color: black !important;
+    text-decoration: none;
+}
+
+.YBDashBoardIcon {
+    margin-top: 0.2em;
+    display: block;
+    font-size: 4em;
+    width: 100%;
+    height: 65%;
+}
+
+/******************************************************************************/
+/******************************** YBDashBoard *********************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/********************************* YBWizard ***********************************/
+/******************************************************************************/
+
+.YBWizard {
+    width: 100%;
+    float: left;
+}
+
+.YBWizardContent, .YBWizardButtonSet {
+    width: 100%;
+    float: left;
+}
+
+/******************************************************************************/
+/********************************* YBWizard ***********************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/********************************* RelatedFieldDb *****************************/
+/******************************************************************************/
+
+.react-autosuggest__container {
+    position: relative;
+}
+
+.react-autosuggest__input {
+    width: 240px;
+    height: 30px;
+    padding: 10px 20px;
+    font-family: Open Sans, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+ 
+.react-autosuggest__input:focus {
+    outline: none;
+}
+
+.react-autosuggest__container--open .react-autosuggest__input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+    position: absolute;
+    top: 51px;
+    width: 280px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    //font-family: Open Sans, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 2;
+}
+
+.react-autosuggest__suggestion {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--focused {
+    background-color: #ddd;
+}
+
+.react-autosuggest__section-title {
+    padding: 10px 0 0 10px;
+    font-size: 12px;
+    color: #777;
+    border-top: 1px dashed #ccc;
+}
+
+.react-autosuggest__section-container:first-child .react-autosuggest__section-title {
+    border-top: 0;
+}
+
+.react-autosuggest__section-suggestions-container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.relatedInput {
+    margin-bottom: 10px !important;
+}
+
+.relatedField {
+    margin-top: 45px !important;
+}
+
+/******************************************************************************/
+/********************************* RelatedFieldDb *****************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/*********************************** Otros ************************************/
+/******************************************************************************/
+
+.checkbox+.checkbox, .radio+.radio {
+    margin-top: 28px !important;
+}
+
+.fielddb {
+    width: 150px !important;
+}
+
+.YBButton {
+    //width: 250px !important;
+}
+
+.floatRight {
+    position: relative;
+    float: right;
+}
+
+.dvhidden {
+    overflow: hidden;
+}
+
+.fieldHidden {
+    display: none !important;
+}
+
+.logError {
+    color: red;
+}
+
+.iconButtonMaterial > button {
+    padding: 0px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.floatButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+    color: @color-primary
+}
+
+#parent-container {
+    padding-bottom: 50px;
+}
+
+.container {
+    padding: 0px 10px 0px 0px !important;
+    width: 100% !important;
+}
+
+.menuElement {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    //font-family: Montserrat, sans-serif;
+}
+
+
+/* NECESARIO PARA MODALES PARCIALES*/
+.modal-container {
+    position: relative;
+}
+.modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
+}
+
+.templateModal {
+    display: none;
+}
+
+.bmodal {
+    width: 90% !important;
+}
+
+.oculto {
+    display: none;
+}
+
+.barcode, .cantidad {
+    margin-left: 10px;
+}
+
+.react-bs-table {
+    overflow: auto;
+}
+
+.inputCom {
+    width: 200px;
+}
+
+.inputCom:disabled {
+    background-color: rgba(1,1,1,0.2);
+}
+
+.inputSubmit {
+    font-weight: bold;
+}
+
+.logo {
+    width: 30px;
+    margin-left: 15px;
+}
+
+.element {
+    position: relative;
+    float: left;
+    padding: 10px;
+}
+
+.fielddbrhem {
+    position: relative;
+    float: left;
+    margin: 10px;
+}
+
+.modal-container .modal, .modal-container .modal-backdrop {
+    position: fixed;
+}
+
+.modal-content {
+    background-color: #F2F2F2 !important;
+}
+
+.inputBase {
+    position: relative;
+    float: left;
+    margin: 10px;
+}
+
+select, select.form-control {
+    background-color: white;
+    padding-right: 10px;
+}
+
+.title {
+    //font-family: Helvetica, sans-serif;
+    margin: 0px 4%;
+    font-weight: 700;
+    color: #555;
+}
+
+.tabButtonSet {
+    width: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.tabViewer {
+    padding-top: 20px;
+}
+
+.tabViewer .tabContent:not(.tabActive) {
+    display: none;
+}
+
+.fielddbrhem label {
+    color: #666;
+}
+
+.fielddbrhem input {
+    color: #000;
+}
+
+.formInputSet {
+    float: left;
+    width: 100%;
+}
+
+.YBFormSubmit {
+    //padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.validacion {
+    //height: 50px;
+}
+
+.validacion input, .validacion select {
+    min-width: 200px;
+    min-height: 37px;
+}
+
+.btn-submit {
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+    position: relative;
+    //padding: 8px 30px;
+    margin: 10px 1px;
+    color: #2196F3;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    background: transparent;
+}
+
+.btn-primary.btn-submit:hover {
+    background-color: #CCC;
+}
+
+/**
+ * Scrollbars.
+ */
+
+.buscador {
+    width: 200px;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+    
+.closeM {
+    margin-top: -14px;
+    float: right;
+}
+
+.react-autosuggest__suggestions-container { 
+    z-index: 100 !important;
+}
+
+.underAc {
+    width: 240px;
+}
+
+@media (max-width: 600px) {
+    .underAc {
+        margin-top: 50px !important;
+    }
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 15px;
+}
+ 
+body::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.PDAsendButton{
+    position: relative;
+    float: left;
+    margin: 40px !important;
+    min-height: 30px
+}
+
+@media (max-width: 600px) {
+    .PDAsendButton {
+        float: right;
+        /*position: relative;
+        margin: 40px !important;
+        min-height: 30px*/
+    }
+}
+
+.gbContainerItem {
+    position: relative;
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+    //border-top-left-radius: 10px;
+    //border-top-right-radius: 10px;
+    //border: 1px solid grey;
+    //border-bottom: dimgray;
+    margin: 3px 2px -2px 0px;
+    box-shadow: 2px -2px 5px -1px #888888;
+}
+
+.gbContainerItem.active {
+    background-color: black;
+    color: white;
+}
+
+.gbContainerDisabled {
+    cursor: not-allowed !important;
+    background-color: lightgrey;
+}
+
+.halfButton > div {
+    min-width: 50px !important;    
+}
+
+.YBComponentInfo {
+    color: @color-primary;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.YBComponentInfoText {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    margin-top: 4px;
+    //margin-left: 4px;
+    text-transform: uppercase;
+}
+
+.YBComponentInfoIcon {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.YBSeparator {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 25px;
+    //padding-left: 30px;
+    //padding-right: 30px;
+}
+
+.YBSeparatorItem {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: @color-primary;
+    //color:#FF0066;
+    //border: 0 none;
+}
+
+.YBFileInputSubmitButton {
+    margin-right: 4px;
+}
+
+.tertiary button {
+    background-color: #FFFF00 !important;
+}
+
+.btn-info {
+    background-color: @color-primary !important;
+}
+
+/******************************************************************************/
+/************************************* Elganso ********************************/
+/******************************************************************************/
+
+.elgansoPDAField {
+    position: relative;
+    max-width: 140px;
+    float: left;
+    display: inline-block;
+    padding: 2px;
+    margin-right: 20px !important;
+    vertical-align: middle;
+}
+
+.elgansoPDAField input {
+    min-width: 140px !important;
+    min-height: 37px;
+
+}
+
+/******************************************************************************/
+/************************************* Elganso ********************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/************************************* Vbarba ********************************/
+/******************************************************************************/
+
+.gbDescripcion {
+    overflow: hidden;
+    float: none;
+    width: auto;
+}
+
+.floatLeft {
+    position: relative;
+    float: left;
+    width: auto;
+    margin-left: 10px;
+}
+
+/******************************************************************************/
+/************************************* Vbarba ********************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/************************************* Bioteruel ********************************/
+/******************************************************************************/
+
+.floatingLabel3 {
+    font-size: 14px;
+    overflow: hidden;
+    width: 33%;
+    float: left;
+    position: relative;
+}
+
+.floatingLabel2 {
+    font-size: 14px;
+    overflow: hidden;
+    width: 63%;
+    float: left;
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .floatingLabel3 {
+       width: 100%;
+       text-align: left !important;
+    }
+}
+
+.floatingLabelLeft {
+    text-align: left;
+}
+.floatingLabelCenter {
+    text-align: center;
+}
+.floatingLabelRight {
+    text-align: right;
+    font-weight: bold;
+}
+
+/******************************************************************************/
+/************************************* Bioteruel ********************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/************************************* Sanhigia ********************************/
+/******************************************************************************/
+
+.shLectura {
+    width: 300px;
+}
+
+@media (max-width: 600px) {
+    .shLectura {
+       width: 250px;
+       position: relative;
+       float: left;
+    }
+}
+
+/******************************************************************************/
+/************************************* Sanhigia ********************************/
+/******************************************************************************/
+
+/******************************************************************************/
+/************************************* Wallmok ********************************/
+/******************************************************************************/
+
+.floatLeftW {
+    position: relative;
+    float: left;
+    width: auto;
+}
+
+.montajeElement {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 50vh;
+}
+
+.montajeElement > .YBGrid {
+    margin-bottom: 0px;
+}
+
+.montajeGrid {
+   height: 40vh;
+   overflow-y: auto;
+}
+
+.cocinasGrid {
+    width: 100%;
+}
+
+.cocinasGrid > .YBGridElement > .YBLista > .YBListItems > .YBListItem {
+    min-height: auto;
+}
+
+.cocinasGrid > .YBGridElement > .YBLista > .YBListItems > .YBListItem > .YBListItemSecondary > .YBListItemSecondaryAction {
+    margin-bottom: 5px;
+}
+
+.cocinasGrid > .YBGridElement > .YBLista > .YBListItems > .YBListItem > .YBListItemPrimary > .YBListItemPrimaryBody {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.montajeGrid > .YBGridElement > .YBLista > .YBListItems > .YBListItem {
+    min-height: auto;
+}
+
+.montajeGrid > .YBGridElement > .YBLista > .YBListItems > .YBListItem > .YBListItemSecondary > .YBListItemSecondaryAction {
+    margin-bottom: 5px;
+}
+
+.montajeGrid > .YBGridElement > .YBLista > .YBListItems > .YBListItem > .YBListItemPrimary > .YBListItemPrimaryBody {
+    font-weight: bold;
+    font-size: 13px;
+}
+/******************************************************************************/
+/************************************* Wallmok ********************************/
+/******************************************************************************/
+
+.YBRelatedfield > div > div> div > div > div > hr ~ hr {
+    border-bottom: 2px solid rgb(200, 224, 200) !important;
+    display: none !important;
+}
+
+/******************************************************************************/
+/************************************* Gesttare ********************************/
+/******************************************************************************/
+@media (min-width: 600px) {
+    .gbTareas {
+        width: 66.66%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gbTareasBox {
+        background-color: white;
+    }
+}

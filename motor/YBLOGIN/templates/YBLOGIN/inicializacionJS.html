@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load YBtools %}
+{% comment %}
+Inicializacion de librerias JS
+Se incluira en este template toda la inicializacion de librerias que sea necesario
+{% endcomment %}
+
+(function (){
+	/* Esperar carga de objeto YEBOYEBO */
+	function esperacarga(){
+		if (YEBOYEBO){
+			/**************************LIBRERIAS NAVEGACION********************************/
+			YEBOYEBO.navegacion.URLResolver.setRaiz('{% url "root" %}');
+
+			/**************************DEPENDIENTE IDIOMA********************************/
+			YEBOYEBO.dataProcessing.format.init({LANGUAGE_CODE:'es-ES',currency:'EUR'});
+		}else{
+			window.setTimeout(esperacarga, 200);
+		};
+
+	};
+	esperacarga();
+})();
+
+function previous(){
+    return null;
+}
+
+window.onload = function () {
+    //var e=document.getElementById("refrescar");
+    //if(e.value=="no")e.value="si";
+    //else{e.value="no";location.reload();}
+
+  
+    
+    if (typeof history.pushState === "function") {
+        history.pushState("jibberish", null, null);
+        window.onpopstate = function () {
+            history.pushState('newjibberish', null, null);
+            previous();
+            var pastHistory = {% toJSON history %};
+            var url = YEBOYEBO.navegacion.URLResolver.getTemplate(pastHistory.aplic, pastHistory.prefix, pastHistory.pk, pastHistory.template);
+			window.location.href = url;
+        };
+    }
+    else {
+        var ignoreHashChange = true;
+        window.onhashchange = function () {
+            if (!ignoreHashChange) {
+                ignoreHashChange = true;
+                window.location.hash = Math.random();
+            }
+            else {
+                ignoreHashChange = false;
+            }
+        };
+    }
+}

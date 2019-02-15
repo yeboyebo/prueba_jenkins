@@ -1,0 +1,68 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+
+        {% block favicon %}
+        {% endblock %}
+
+        {% block js %}
+        {% endblock %}
+
+        {% block jsnotification %}
+        {% endblock %}
+
+        {% block css %}
+        {% endblock %}
+
+        {% block extrahead %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            {% endblock %}
+        </header>
+        <nav id="nav">
+            {% block nav %}
+            {% endblock %}
+        </nav>
+
+        <main id="main">
+            {% block main %}
+                {% block breadcrumbs %}
+                {% endblock %}
+
+                {% block content %}
+                {% endblock %}
+            {% endblock %}
+
+            {% block contenido %}
+            {% endblock %}
+
+            {% block messages %}
+            {% endblock %}
+        </main>
+        <aside>
+            {% block aside %}
+            {% endblock %}
+        </aside>
+        <footer>
+            {% block footer %}
+            {% endblock %}
+        </footer>
+        {% block load_indicator %}
+        {% endblock %}
+
+        {% block endjs %}
+        {% endblock %}
+    </body>
+</html>

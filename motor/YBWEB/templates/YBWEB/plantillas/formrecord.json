@@ -1,0 +1,16 @@
+{
+    "querystring": {
+        "p_l": 50
+    },
+    "schema": {},
+    "layout": {
+        "formRecord": {
+            "prefix": "master",
+            "componente": "YBForm",
+            "class": "claseGrid",
+            "submit": "update",
+            "return": true,
+            "saveReturn": true
+        }
+    }
+}

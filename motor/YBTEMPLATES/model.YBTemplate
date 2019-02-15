@@ -1,0 +1,39 @@
+# @class_declaration interna_tmpModelo #
+import importlib
+
+from YBUTILS.viewREST import helpers
+
+from models.tmpModulo import models as modelos
+
+
+class interna_tmpModelo(modelos.tmpMtdModelo, helpers.MixinConAcciones):
+    pass
+
+    class Meta:
+        proxy = True
+
+
+# @class_declaration tmpClient_tmpModelo #
+class tmpClient_tmpModelo(interna_tmpModelo, helpers.MixinConAcciones):
+    pass
+
+    class Meta:
+        proxy = True
+
+
+# @class_declaration tmpModelo #
+class tmpModelo(tmpClient_tmpModelo, helpers.MixinConAcciones):
+    pass
+
+    class Meta:
+        proxy = True
+
+    def getIface(self=None):
+        return form.iface
+
+
+definitions = importlib.import_module("models.tmpModulo.tmpModelo_def")
+form = definitions.FormInternalObj()
+form._class_init()
+form.iface.ctx = form.iface
+form.iface.iface = form.iface

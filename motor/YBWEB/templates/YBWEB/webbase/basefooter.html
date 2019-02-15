@@ -1,0 +1,12 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load includeJSX %}
+{% load YBtools %}
+
+<div id="yb_web_footer"/>
+
+{% incJS navegacion $ componentes %}
+    
+{% endVar %}
+	navegacion.ReactLoader.getComponent("YBBaseFooter", document.getElementById("yb_web_footer"));
+{% endincJS %}

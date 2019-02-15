@@ -1,0 +1,31 @@
+SECURE = False
+
+ALLOWED_HOSTS = (
+    'localhost',
+)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'comun_elgansoctr',
+        'USER': 'juanma',
+        'PASSWORD': '55555',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': False
+    }
+}
+
+'''
+JASPER_URL = 'http://127.0.0.1:8080/jasperserver'
+JASPER_USER = 'jasperadmin'
+JASPER_PASSWORD = 'jasperadmin'
+'''
+
+'''
+USE_X_FORWARDED_HOST = True
+FORCE_SCRIPT_NAME='/PRO/'
+STATIC_URL = '/PRO/static/'
+TEMPLATE_CONTEXT_PROCESSORS=('django.core.context_processors.request',)
+DEBUG=False
+'''

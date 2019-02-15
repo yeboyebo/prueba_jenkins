@@ -1,0 +1,188 @@
+#YBChat {
+    display: inherit;
+    position: fixed;
+    z-index: 1070;
+    right: 20px;
+    bottom: 0;
+    left: auto;
+}
+
+.YBChatComponent {
+    box-sizing: border-box;
+}
+
+.YBChatWindows {
+    //position: relative;
+    //float: right;
+    // height: 30px;
+    display: inline-block;
+    margin: 0 0 0 10px;
+    width: 200px;
+    vertical-align: bottom;
+
+}
+
+.YBChatWindowsInner {
+    box-shadow: none;
+    border-style: solid;
+    border: 1px solid #cccccc;
+    height: 30px;
+    border-bottom: 0;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4px 4px 0 0;
+    line-height: 28px;
+    text-transform: capitalize;
+}
+
+.YBChatWindowsInner.YBChatUsers {
+    background: #444444;
+    color: #eeeeee;
+    height: 28px;
+}
+
+.YBChatPrivate {
+    
+}
+
+.YBChatExpanded {
+    bottom: 0;
+    top: 28px;
+    padding: 0;
+    background: white;
+    border-radius: 4px;
+}
+
+.YBChatExpanded.YBChatUsersList {
+    display: none;
+    height: auto;
+}
+
+.YBChatUsersList.active {
+    display: block;
+} 
+
+.YBChatUserElement {
+    padding: 5px 15px;
+    line-height: 24px;
+    cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.YBChatUserElement:hover {
+    background-color: lightblue;
+}
+
+.YBChatExpandedInfo {
+    height: 25px;
+    background-color: #00c9d4;
+    cursor: pointer;
+}
+
+.YBChatExpandedInfoName {
+    position: relative;
+    float: left;
+    text-transform: capitalize;
+    width: 90%;
+    font-weight: bold;
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.YBChatExpandedClose {
+    cursor: pointer;
+    position: relative;
+    float: right;
+    padding-top: 2px;
+    padding-right: 2px;
+}
+.material-icons.closeC {
+    font-size: 17px !important;
+}
+
+.YBChatHistory {
+    background-color: lightgrey;
+    height: 200px;
+    overflow: auto;
+}
+
+/**********************************************************
+.YBChatSender {
+    text-align: left;
+}
+
+.YBChatReceiver {
+    text-align: right;
+}
+********************/
+
+.receive {
+    color: red;
+}
+
+.YBChatHistoryCont {
+    //max-width: 90%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.YBChatHistoryCont.YBChatSender {
+    .YBChatHistoryMsg {
+        float: left;
+        margin-right: 15px;
+        background-color: lightgreen;
+    }
+}
+
+.YBChatHistoryCont.YBChatReceiver {
+    .YBChatHistoryMsg {
+        float: right;
+        margin-left: 15px;
+    }
+}
+
+.YBChatHistoryMsg {
+    position: relative;
+    border-radius: 4px;
+    margin-left: 4px;
+    padding: 10px;
+    background-color: white;
+    display: inline-block;
+}
+
+
+.YBChatHistory::-webkit-scrollbar {
+    width: 0.6em;
+}
+
+.YBChatHistory::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.YBChatHistory::-webkit-scrollbar-thumb {
+  background-color: #FF8800;
+  outline: 1px solid slategrey;
+}
+
+
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,12 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load includeJSX %}
+{% load YBtools %}
+
+<div id="yb_web_catalogue"/>
+
+{% incJS navegacion $ componentes %}
+    
+{% endVar %}
+	navegacion.ReactLoader.getComponent("YBBaseCatalogue", document.getElementById("yb_web_catalogue"));
+{% endincJS %}

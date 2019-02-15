@@ -1,0 +1,161 @@
+@color-tableroweven: rgba(240, 240, 240, 0.84);
+@color-tablerowodd: rgba(255, 255, 255, 0.84);
+
+.YBGrid {
+	//padding-bottom: 20px;
+	width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: block;
+}
+
+.YBGrid.hidden {
+    display: none;
+}
+
+.YBGridOverHeader {
+	overflow: hidden;
+}
+
+.YBTableGridAction {
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.YBTable {
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.YBTableOverGrid {
+    min-width: 100%;
+    overflow: auto;
+}
+
+.YBTableRow {
+    float: left;
+    min-width: 100%;
+    height: 36px;
+    display: flex;
+}
+
+.YBTableRow {
+    .setColor(@color-tablerowodd, 0%)
+}
+
+/*.YBTableRow:nth-child(odd) {
+    .setColor(@color-tablerowodd, 0%)
+}
+
+.YBTableRow:nth-child(even) {
+    background-color: rgba(240, 240, 240, 0.84);
+}*/
+
+.YBTableRowClick {
+	cursor: pointer;
+}
+
+.YBTableHeaderRow {
+    height: 50px;
+    font-weight: bold;
+    background-color: #f6f7f8;
+    background-image: linear-gradient(#fff, #efefef);
+}
+
+.YBTableCell {
+    display: table-cell;
+    height: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    //border: 1px solid rgb(211, 211, 211);
+    margin: 0px;
+}
+
+
+.YBTableEditableCell {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+.YBTableEditableCell {
+	box-shadow: inset 1px 1px 4px black;
+}
+
+.YBTableEditableCell.changed {
+    .setColor(@color-danger, false, @important)
+}
+
+.YBTableEditableCell input {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.YBTableHeaderCell {
+    vertical-align: middle;
+}
+
+.YBTableActionsCell {
+    flex-grow: 0;
+    text-align: center;
+}
+
+.YBTableOverHeader {
+    width: 100%;
+}
+
+.YBTableTitle {
+    position: relative;
+    //float: left;
+}
+
+.YBGridActions {
+    position: relative;
+    float: right;
+    margin-left: 5px;
+    display: flex;
+}
+
+.YBTable .selectedsOnly {
+    float: right;
+    margin-right: 20px;
+}
+
+.AQGridCheckBox {
+    cursor: pointer;
+    pointer-events: all;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+    left: 0px;
+    box-sizing: border-box !important;
+    padding: 0px;
+    margin: 0px 5px 10px 7px !important;
+}
+
+.YBTableConfiguration {
+    position: relative;
+    box-shadow: 2px 2px 10px -1px #888888;
+    float: left;
+    padding: 5px;
+    background-color: #FFF;
+    width: 100%;
+    min-height: 200px;
+}
+
+.YBGridTitle {
+    position: relative;
+    //float: left;
+    overflow: hidden;
+}
+
+.YBTableGridActionButton {
+    position: relative;
+    float: right;
+}

@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "NAME": "usuarios",
+            "TEXT": "USUARIOS",
+            "URL": "system/auth_user/master",
+            "ICON": "insert_chart"
+        },
+        {
+            "NAME": "grupos",
+            "TEXT": "GRUPOS",
+            "URL": "system/auth_group/master",
+            "ICON": "insert_chart"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "querystring": {
+        "p_l": 10,
+        "p_c": true
+    },
+    "schema": {},
+    "layout": {
+        "masterGrid": {
+            "componente": "YBTable",
+            "class": "claseGrid",
+            "label": "",
+            "prefix": "master",
+            "filter": "buscador",
+            "paginacion": true,
+            "columns": [],
+            "rowclick": "link"
+        },
+        "newRecord": {
+            "componente": "YBNewRecord",
+            "class": "info",
+            "icon": "add"
+        }
+    },
+    "acciones": {
+        "delete": {
+            "action": "deleteRow",
+            "icon": "delete"
+        }
+    }
+}

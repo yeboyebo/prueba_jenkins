@@ -1,0 +1,16 @@
+.setColor(@color: #FFF, @lighten: @editable-lighten, @isImportant: @not-important) {
+    background-color: @color @isImportant;
+
+    .YBTableCell {
+        background-color: lighten(@color, @table-lighten) @isImportant;
+    }
+
+    .YBTableEditableCell {
+        background-color: lighten(@color, @editable-lighten) @isImportant;
+    }
+
+}
+
+.setForegroundColor(@color: #FFF, @lighten: @editable-lighten, @isImportant: @not-important) {
+    color: @color @isImportant;
+}

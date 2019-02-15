@@ -1,0 +1,64 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load YBtools %}
+{% load includeJSX %}
+
+<!DOCTYPE HTML>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">       
+    <title>{% trans "AQNext" %}</title>
+    <link rel="icon" type="image/png" href="{% static 'dist/img/logo/icon.png' %}" />
+
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bundles/main.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'dist/css/client.css' %}"> 
+        <!--link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"-->
+    {% endblock %}
+
+    {% block js %}
+        <script src="{% static 'bundles/main.js' %}"></script>
+        <script src="{% static 'bundles/auxcss.js' %}"></script>
+        <script src="{% static 'dist/js/client.js' %}"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <!--script src="{% static "dist/notifications/notifications.js" %}"></script-->
+        <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script-->
+        <script>
+            {% include "YBLOGIN/inicializacionJS.html" %}
+        </script>
+    {% endblock %}
+</head>
+
+<body>
+<div id="YB_BARRANAVEGACION"></div>     
+<div id="YB_CONTAINER"></div>
+    {% incJS navegacion $ componentes %}
+        var titulo = '{% trans "AQNext" %}';
+
+    {% endVar %}
+
+        var objAtts = {
+            "data": {% toJSON data %},
+            "layout": {% toJSON layout %},
+            "aplic": "{{ aplic }}",
+            "prefix": "{{ prefix }}",
+            "history": {% toJSON history %},
+            "superuser": "{{ superuser }}",
+            "user": "{{ usuario }}",
+            "usergroup": "{{ grupos }}",
+            "rootUrl": "{% url 'root' %}",
+            "staticUrl": "{% static '' %}",
+            "msg": "{{ msg.error }}",
+            "custom": "{{ custom }}",
+            "aplicLabel": "{{ aplicLabel }}",
+            "menu": {% toJSON menu %}
+        };
+        var objFuncs = {};
+        var objContainer = document.getElementById('YB_CONTAINER');
+        componentes.YBContainer.generaYBContainer(objContainer, objAtts, objFuncs);
+
+    {% endincJS %}
+
+    <input type="hidden" id="refrescar" value="no">
+</body>

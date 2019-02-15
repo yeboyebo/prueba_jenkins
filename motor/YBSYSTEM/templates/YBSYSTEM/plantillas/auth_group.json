@@ -1,0 +1,63 @@
+{
+    "querystring": {},
+    "schema": {
+        "usergroups": {
+            "query": {"p_l": 7, "p_c": true}
+        }
+    },
+    "layout": {
+        "groupBoxAcciones": {
+            "componente": "YBGroupBox",
+            "className": "",
+            "layout": {
+                "gestionarPermisos": {
+                    "componente": "YBButton",
+                    "prefix": "auth_group",
+                    "label": "Control de acceso",
+                    "className": "floatRight",
+                    "buttonType": "raised",
+                    "action": {
+                        "key": "accessControl",
+                        "success": []
+                    }
+                }
+            }
+        },
+        "queryGrid_usergroups": {
+            "componente": "YBGrid",
+            "label": "",
+            "prefix": "usergroups",
+            "filter": false,
+            "type": "query",
+            "multiselectable": true,
+            "columns": [
+                {"tipo": "field", "key": "auth_user.username", "label": "Nombre", "width": 100}
+            ],
+            "rowclick": "",
+            "accionesGrid": [
+                {
+                    "key": "eliminar",
+                    "label": "Eliminar",
+                    "success": [{"slot": "refrescar"}]
+                }
+            ]
+        }
+    },
+    "acciones": {
+        "accessControl": {
+            "action": "goto",
+            "prefix": "auth_group",
+            "serverAction": "accessControl"
+        },
+        "delete": {
+            "action": "deleteRow",
+            "icon": "delete"
+        },
+        "eliminar": {
+            "label" : "",
+            "action": "gridAction",
+            "serverAction": "eliminarUsuario",
+            "icon": "delete"
+        }
+    }
+}

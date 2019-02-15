@@ -1,0 +1,64 @@
+{% extends "YBLOGIN/index.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load includeJSX %}
+{% load YBtools %}
+
+{% block title %}
+    {% trans "AQNext" %}
+{% endblock %}
+
+{% block favicon %}
+    {% comment %}
+        PENDIENTE
+    {% endcomment %}
+{% endblock %}
+
+{% block css %}
+	<link rel="manifest" href="{% static 'bundles/manifest.json' %}">
+    <!-- Material Design fonts -->
+    <!--link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"-->
+    <link rel="icon" type="image/png" href="{% static 'dist/img/logo/icon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bundles/main.css' %}">            
+{% endblock %}
+
+{% block js %} 
+    <script src="{% static 'bundles/main.js' %}"></script>
+    <script src="{% static 'bundles/auxcss.js' %}"></script>
+    <script src="{% static 'dist/notifications/notifications.js' %}"></script>
+    <script>
+        {% include "YBLOGIN/inicializacionJS.html" %}
+    </script>
+
+{% endblock %}
+
+{% block nav %}
+    <div id="YB_BARRANAVEGACION"/>
+{% endblock %}
+
+{% block main %}
+    <div id="YB_CONTENIDO" data-YB_CONTAINER="1"/>
+
+    {% incJS navegacion $ componentes %}
+        
+    {% endVar %}
+        var objAtts = {
+            "aplic": "{{ aplic }}",
+            "user": "{{ usuario }}",
+            "superuser": "{{ superuser }}",
+            "usergroup": "",
+            "staticUrl": "{% static '' %}",
+            "rootUrl": "{% url 'root' %}",
+            "menuDict": {% toJSON menuJson %},
+            "aplicLabel": "{{ aplicLabel }}"
+        };
+        var objFuncs = {};
+        var objDashBoard = document.getElementById("YB_CONTENIDO");
+        componentes.YBDashBoard.generaYBDashBoard(objDashBoard, objAtts, objFuncs);
+    {% endincJS %}
+    
+{% endblock %}
+
+<script>
+    $.material.init();
+</script>

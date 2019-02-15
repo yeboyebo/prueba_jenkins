@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "NAME": "usuarios",
+            "TEXT": "USUARIOS",
+            "URL": "users",
+            "ICON": "insert_chart"
+        },
+        {
+            "NAME": "grupos",
+            "TEXT": "GRUPOS",
+            "URL": "groups",
+            "ICON": "insert_chart"
+        },
+        {
+            "NAME": "controlaccesousuarios",
+            "TEXT": "CONTROL DE ACCESO USUARIOS",
+            "URL": "acusers",
+            "ICON": "insert_chart"
+        },
+        {
+            "NAME": "controlaccesogrupos",
+            "TEXT": "CONTROL DE ACCESO GRUPOS",
+            "URL": "acgroups",
+            "ICON": "insert_chart"
+        }
+    ]
+}

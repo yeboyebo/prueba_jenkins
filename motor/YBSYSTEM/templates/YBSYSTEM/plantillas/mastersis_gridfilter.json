@@ -1,0 +1,48 @@
+{
+    "querystring": {
+        "p_l": 50,
+        "p_c": true,
+        "f_filtrosUsuario": null
+    },
+    "schema": {},
+    "layout": {
+        "masterGridFilter": {
+            "componente": "YBGrid",
+            "label": "Filtros",
+            "prefix": "sis_gridfilter",
+            "colorRowField": "rowColor",
+            "filter": false,
+            "columns": [
+                {"tipo": "field", "listpos": "title", "key": "descripcion"},
+                {
+                    "tipo": "act",
+                    "key": "delete",
+                    "label": "Borrar Linea",
+                    "success": [
+                        {"slot": "refrescar"}
+                    ]
+                },
+                {
+                    "tipo": "act",
+                    "key": "inicial",
+                    "label": "Filtro inicial",
+                    "success": [
+                        {"slot": "refrescar"}
+                    ]
+                }
+            ],
+            "rowclick": ""
+        }
+    },
+    "acciones": {
+        "delete": {
+            "action": "deleteRow",
+            "icon": "delete"
+        },
+        "inicial": {
+            "action": "legacy",
+            "icon": "start",
+            "serverAction": "inicial"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "querystring": {
+        "p_l": 50,
+        "p_c": true
+    },
+    "schema": {},
+    "layout": {
+        "masterAuthGroup": {
+            "componente": "YBList",
+            "label": "Usuarios",
+            "prefix": "auth_group",
+            "filter": "buscador",
+            "columns": [
+                {"tipo": "field", "listpos": "title", "key": "name"},
+                {
+                    "tipo": "act",
+                    "key": "delete",
+                    "label": "Borrar Linea",
+                    "success": [
+                        {"slot": "refrescar"}
+                    ]
+                }
+            ],
+            "rowclick": "link"
+        },
+        "newRecordTelest": {
+            "componente": "YBNewRecordGoTo",
+            "class": "info",
+            "icon": "add",
+            "goto": "/newgroup"
+        }
+    },
+    "acciones": {
+        "delete": {
+            "action": "deleteRow",
+            "icon": "delete"
+        }
+    }
+}

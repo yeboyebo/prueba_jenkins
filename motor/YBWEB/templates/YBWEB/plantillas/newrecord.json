@@ -1,0 +1,17 @@
+{
+    "querystring": {
+        "p_l": 50
+    },
+    "schema": {},
+    "layout": {
+        "masterForm": {
+            "prefix": "master",
+            "componente": "YBForm",
+            "class": "claseGrid",
+            "submit": "create",
+            "return": true,
+            "saveEdit": true,
+            "saveReturn": true
+        }
+    }
+}

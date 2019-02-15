@@ -1,0 +1,93 @@
+{
+    "querystring": {},
+    "schema": {
+        "usergroups": {
+            "query": {"p_l": 7, "p_c": true}
+        }
+    },
+    "layout": {
+        "groupBoxAcciones": {
+            "componente": "YBGroupBox",
+            "className": "",
+            "layout": {
+                "gestionarPermisos": {
+                    "componente": "YBButton",
+                    "prefix": "auth_group",
+                    "label": "Control de acceso",
+                    "className": "floatRight",
+                    "buttonType": "raised",
+                    "action": {
+                        "key": "accessControl",
+                        "success": []
+                    }
+                }
+            }
+        },
+        "formRecordAuthUser": {
+            "prefix": "auth_user",
+            "componente": "YBForm",
+            "class": "claseGrid",
+            "submit": "update",
+            "success": [],
+            "groupbox": "acordeon",
+            "return": true,
+            "fields": {
+                "gb__principal": {
+                    "title": "Principal",
+                    "fields": {
+                        "username": {"disabled": true},
+                        "first_name": {},
+                        "email": {}
+                    }
+                }
+            }
+        },
+        "queryGrid_usergroups": {
+            "componente": "YBGrid",
+            "label": "",
+            "prefix": "usergroups",
+            "filter": false,
+            "type": "query",
+            "multiselectable": true,
+            "columns": [
+                {"tipo": "field", "key": "auth_group.name", "label": "Nombre", "width": 100}
+            ],
+            "rowclick": "",
+            "accionesGrid": [
+                {
+                    "key": "NuevoGrupo",
+                    "label": "NuevoGrupo",
+                    "success": [{"slot": "refrescar"}]
+                },
+                {
+                    "key": "salirGrupo",
+                    "label": "Dejar Grupo",
+                    "success": [{"slot": "refrescar"}]
+                }
+            ]
+        }
+    },
+    "acciones": {
+        "accessControl": {
+            "action": "goto",
+            "prefix": "auth_user",
+            "serverAction": "accessControl"
+        },
+        "delete": {
+            "action": "deleteRow",
+            "icon": "delete"
+        },
+        "salirGrupo": {
+            "label" : "",
+            "action": "gridAction",
+            "serverAction": "salirGrupo",
+            "icon": "delete"
+        },
+        "NuevoGrupo": {
+            "label" : "",
+            "action": "gridAction",
+            "serverAction": "NuevoGrupo",
+            "icon": "add"
+        }
+    }
+}
