@@ -1,0 +1,10 @@
+{
+    "items": [
+        {
+            "NAME": "diagnosis",
+            "TEXT": "DIAGNOSIS",
+            "ICON": "local_hospital",
+            "COLOR": "rgb(215, 30, 30)"
+        }
+    ]
+}

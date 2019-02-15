@@ -1,0 +1,56 @@
+{
+    "querystring": {},
+    "schema": {
+        "yb_subregdiagnosis": {
+            "rel": "idreg",
+            "querystring": {
+                "p_l": 5000,
+                "p_c": true,
+                "o_1": "timestamp",
+                "o_2": "destino"
+            }
+        }
+    },
+    "layout": {
+    	"labelTipo": {
+            "componente": "YBLabel",
+            "text": "%yb1",
+            "style": {
+                "fontSize": "60px",
+                "fontWeight": "bold",
+                "width": "100%",
+                "textAlign": "center"
+            },
+            "params": [
+                {"type": "model", "key": "tipo"}
+            ]
+        },
+        "chartMulti": {
+            "componente": "YBChart",
+            "subtable": "yb_subregdiagnosis",
+            "multiple": true,
+            "subtitleField": "timestamp",
+            "subtitleType": 28,
+            "fieldName": "name",
+            "fieldValue": "value",
+            "chartseries": [
+                {
+                    "field": "error",
+                    "name": "No sincro",
+                    "color": "#D62728"
+                },
+                {
+                    "field": "warn",
+                    "name": "Warning",
+                    "color": "#EB7F0E"
+                },
+                {
+                    "field": "ok",
+                    "name": "OK",
+                    "color": "#2CA02C"
+                }
+            ]
+        }
+    },
+    "acciones": {}
+}

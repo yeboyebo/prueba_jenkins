@@ -1,0 +1,127 @@
+{
+    "querystring": {
+        "p_l": 50,
+        "p_c": true,
+        "o_1": "timestamp",
+        "o_2": "tipo",
+        "o_3": "idreg",
+        "s_cliente__exact": "elganso"
+    },
+    "schema": {},
+    "layout": {
+        "chartV": {
+            "componente": "YBChart",
+            "title": "Ventas",
+            "subtitleField": "timestamp",
+            "subtitleType": 28,
+            "fieldName": "name",
+            "fieldValue": "value",
+            "radius": 60,
+            "hideLabels": true,
+            "rowclick": "dameSubregistrosDiagnosis",
+            "chartseries": [
+                {
+                    "field": "error",
+                    "name": "No sincro",
+                    "color": "#D62728"
+                },
+                {
+                    "field": "warn",
+                    "name": "Warning",
+                    "color": "#EB7F0E"
+                },
+                {
+                    "field": "ok",
+                    "name": "OK",
+                    "color": "#2CA02C"
+                }
+            ],
+            "querystring": {
+                "subtable": "yb_subregdiagnosis",
+                "rel": "idreg",
+                "filter": {
+                    "cliente": "elganso",
+                    "tipo": "Ventas Tpv"
+                }
+            }
+        },
+        "chartS": {
+            "componente": "YBChart",
+            "title": "Stocks",
+            "subtitleField": "timestamp",
+            "subtitleType": 28,
+            "fieldName": "name",
+            "fieldValue": "value",
+            "hideLabels": true,
+            "radius": 60,
+            "rowclick": "dameSubregistrosDiagnosis",
+            "chartseries": [
+                {
+                    "field": "error",
+                    "name": "No sincro",
+                    "color": "#D62728"
+                },
+                {
+                    "field": "warn",
+                    "name": "Warning",
+                    "color": "#EB7F0E"
+                },
+                {
+                    "field": "ok",
+                    "name": "OK",
+                    "color": "#2CA02C"
+                }
+            ],
+            "querystring": {
+                "subtable": "yb_subregdiagnosis",
+                "rel": "idreg",
+                "filter": {
+                    "cliente": "elganso",
+                    "tipo": "Stock"
+                }
+            }
+        },
+        "chartA": {
+            "componente": "YBChart",
+            "title": "Arqueos",
+            "subtitleField": "timestamp",
+            "subtitleType": 28,
+            "fieldName": "name",
+            "fieldValue": "value",
+            "hideLabels": true,
+            "radius": 60,
+            "rowclick": "dameSubregistrosDiagnosis",
+            "chartseries": [
+                {
+                    "field": "error",
+                    "name": "No sincro",
+                    "color": "#D62728"
+                },
+                {
+                    "field": "warn",
+                    "name": "Warning",
+                    "color": "#EB7F0E"
+                },
+                {
+                    "field": "ok",
+                    "name": "OK",
+                    "color": "#2CA02C"
+                }
+            ],
+            "querystring": {
+                "subtable": "yb_subregdiagnosis",
+                "rel": "idreg",
+                "filter": {
+                    "cliente": "elganso",
+                    "tipo": "Arqueos Tpv"
+                }
+            }
+        }
+    },
+    "acciones": {
+        "dameSubregistrosDiagnosis": {
+            "action": "goto",
+            "serverAction": "dameSubregistrosDiagnosis"
+        }
+    }
+}

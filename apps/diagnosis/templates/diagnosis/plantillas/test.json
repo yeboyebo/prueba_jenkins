@@ -1,0 +1,31 @@
+{
+    "querystring": {},
+    "schema": {},
+    "layout": {
+        "groupBoxAcciones": {
+            "componente": "YBGroupBox",
+            "className": "actionGB",
+            "style": {"zIndex": 3, "position": "relative"},
+            "layout": {
+                "salesButton": {
+                    "componente": "YBButton",
+                    "prefix": "yb_regdiagnosis",
+                    "label": "Enviar",
+                    "className": "floatRight",
+                    "buttonType": "raised",
+                    "action": {
+                        "key": "sendSales",
+                        "success": [{"slot": "refrescar"}]
+                    }
+                }
+            }
+        }
+    },
+    "acciones": {
+        "sendSales": {
+            "action": "legacy",
+            "serverAction": "testApi",
+            "icon": "icon"
+        }
+    }
+}
