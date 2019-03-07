@@ -6,9 +6,14 @@ ALLOWED_HOSTS = (
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'yeboyebo_diagnosis',
+        'USER': 'yebousr',
+        'PASSWORD': 'c0mb0c4l4d4',
+        'HOST': '5.196.140.251',
+        'PORT': 54322,
+        'ATOMIC_REQUESTS': False
+    },
 }
 
 '''
